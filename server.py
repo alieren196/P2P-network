@@ -14,11 +14,9 @@ def start_server(buffer_size):
             client_socket, client_address = server_socket.accept()
             print(f"{client_address} adresinden bir istemci bağlandı.")
 
-            # İstemciye hoş geldin mesajı gönder
             welcome_message = "Bağlantı başarıyla kuruldu. Hoş geldin!"
             client_socket.send(welcome_message.encode())
 
-            # Büyük veri gönderimi
             with open("large_file.txt", "rb") as file:
                 data = file.read(buffer_size)
                 while data:
